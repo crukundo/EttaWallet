@@ -15,7 +15,7 @@ const WalletIntro = () => {
     }
 
     const color = store.theme.color;
-    const globalStyles = dynamicStyle(color);
+    const dynamicStyles = dynamicStyle(color);
     const styles = StyleSheet.create({
         container1: {
             flex: 6,
@@ -47,24 +47,24 @@ const WalletIntro = () => {
         },
     })
     return (
-        <MainContent style={globalStyles.container}>
-            <View style={[globalStyles.align, styles.container1]}>
-                <H6Text style={[globalStyles.text, styles.text]}>Etta Wallet</H6Text>
-                <H3Text style={[globalStyles.secText, styles.secText]}>
+        <MainContent style={dynamicStyles.container}>
+            <View style={[dynamicStyles.align, styles.container1]}>
+                <H6Text style={[dynamicStyles.text, styles.text]}>Etta Wallet</H6Text>
+                <H3Text style={[dynamicStyles.secText, styles.secText]}>
                     A simple bitcoin wallet for your enjoyment.
                 </H3Text>
                 <Button2 onPress={createWalletHandler} style={styles.btn}>
-                    <H3Text style={globalStyles.btnText}>Create a new wallet</H3Text>
+                    <H3Text style={dynamicStyles.btnText}>Create a new wallet</H3Text>
                 </Button2>
                 <Button onPress={createWalletHandler}>
                     <H4Text style={styles.restoreTxt}>Restore existing wallet</H4Text>
                 </Button>
             </View>
-            <View style={[globalStyles.align, styles.container2]}>
-                <H4Text style={[globalStyles.secText, styles.footerTxt]}>
+            <View style={[dynamicStyles.align, styles.container2]}>
+                <H4Text style={[dynamicStyles.secText, styles.footerTxt]}>
                     Your wallet, your coins
                 </H4Text>
-                <H4Text style={[globalStyles.secText, styles.footerTxt]}>
+                <H4Text style={[dynamicStyles.secText, styles.footerTxt]}>
                     100% open-source & open-design
                 </H4Text>
             </View>
