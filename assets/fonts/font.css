@@ -1,0 +1,47 @@
+/* activate font smoothing */
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* remove blue border around focused elements */
+
+*:focus {
+  outline: none;
+}
+@font-face {
+  font-family: 'Inter Light';
+  src: url('../assets/font/Inter-Light.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 200;
+}
+@font-face {
+  font-family: 'Inter Regular';
+  src: url('../assets/font/Inter-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Inter Medium';
+  src: url('../assets/font/Inter-Medium.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Inter Bold';
+  src: url('../assets/font/Inter-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 800;
+}
+@font-face {
+  font-family: 'Inter SemiBold';
+  src: url('../assets/font/Inter-SemiBold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'PaytoneOne Regular';
+  src: url('../assets/font/PaytoneOne-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+}
