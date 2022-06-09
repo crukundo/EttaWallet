@@ -15,6 +15,11 @@ const styles = StyleSheet.create({
     backHeader: {
         alignItems: 'flex-start',
     },
+    toolbarContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 20
+    }
 });
 
 export const Header = ({ style, children }) => (
@@ -47,6 +52,26 @@ export const Back_Header = ({ color, style }) => (
 
 export const Skip_Header = ({ color, style }) => (
     <Header style={[styles.settingHeader, style]}>
+        <Button onPress={() => {
+            return 0;
+        }}>
+            <H3Text style={{ color: color }}>
+                Skip
+            </H3Text>
+        </Button>
+    </Header>
+);
+
+export const Back_Skip_Toolbar = ({ color, style }) => (
+    <Header style={[styles.toolbarContainer, style]}>
+        <Button onPress={() => {
+            return 0;
+        }}>
+            <H3Text style={{ color: color }}>
+                <CaretLeft height={20} width={30} viewBox="0 0 20 20" color={color} />
+                Back
+            </H3Text>
+        </Button>
         <Button onPress={() => {
             return 0;
         }}>

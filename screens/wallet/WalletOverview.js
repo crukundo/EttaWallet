@@ -70,15 +70,15 @@ const WalletOverview = ({ navigation }) => {
             <CircularContainer style={cstyle.iconContainer}>
               <WalletIcon color={color.fill} height={70} width={70} />
             </CircularContainer>
-            <H6Text style={[dynamicStyles.text, cstyle.text]}>
+            <H2Text style={[dynamicStyles.text, cstyle.text]}>
               Manage your Bitcoin
-            </H6Text>
-            <H2Text style={[dynamicStyles.secText, cstyle.secText]}>
+            </H2Text>
+            <H6Text style={[dynamicStyles.secText, cstyle.secText]}>
               Take full control with this completely self-custodied wallet.
-            </H2Text>
-            <H2Text style={[dynamicStyles.secText, cstyle.secText]}>
+            </H6Text>
+            <H6Text style={[dynamicStyles.secText, cstyle.secText]}>
               Your keys, your coins.
-            </H2Text>
+            </H6Text>
           </View> : null
         }
         {progress === 1 ?
@@ -86,13 +86,13 @@ const WalletOverview = ({ navigation }) => {
             <CircularContainer style={cstyle.iconContainer}>
               <CloudIcon color={color.fill} height={70} width={70} />
             </CircularContainer>
-            <H6Text style={[dynamicStyles.text, cstyle.text]}>
+            <H2Text style={[dynamicStyles.text, cstyle.text]}>
               Convenient backups with cloud storage
-            </H6Text>
-            <H2Text style={[dynamicStyles.secText, cstyle.secText]}>
+            </H2Text>
+            <H6Text style={[dynamicStyles.secText, cstyle.secText]}>
               Your recovery phrase will be encrypted and backed up to your cloud
               provider, only you will be able to access it.
-            </H2Text>
+            </H6Text>
           </View> : null
         }
         {progress === 2 ?
@@ -100,12 +100,12 @@ const WalletOverview = ({ navigation }) => {
             <CircularContainer style={cstyle.iconContainer}>
               <SafeIcon color={color.fill} height={70} width={70} />
             </CircularContainer>
-            <H6Text style={[dynamicStyles.text, cstyle.text]}>
+            <H2Text style={[dynamicStyles.text, cstyle.text]}>
               Keep your wallet and bitcoin secure
-            </H6Text>
-            <H2Text style={[dynamicStyles.secText, cstyle.secText]}>
-              Enable face detection or set a pin for extra security.
             </H2Text>
+            <H6Text style={[dynamicStyles.secText, cstyle.secText]}>
+              Enable face detection or set a pin for extra security.
+            </H6Text>
           </View> : null
         }
       </View>

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Text as RNText, StyleSheet } from 'react-native';
-import { fontSize } from '../constants/styles';
+import { sizes } from '../constants/styles';
 
 // Base Text
 const baseStyles = StyleSheet.create({
     text: {
-        fontSize: fontSize.sizeBase,
-        lineHeight: fontSize.lineHeightBase,
+        fontSize: sizes.sizeBase,
+        lineHeight: sizes.lineHeightBase,
         zIndex: 1,
         textAlign: 'center'
     },
@@ -21,8 +21,8 @@ export const Text = ({ children, style, ...props }) => (
 // H1 Text
 const h1Styles = StyleSheet.create({
     text: {
-        fontSize: fontSize.sizeXXL,
-        lineHeight: fontSize.lineHeightXXL,
+        fontSize: sizes.Heading1,
+        lineHeight: sizes.lineHeightH1,
     },
 });
 
@@ -33,8 +33,8 @@ export const H1Text = ({ children = '', style }) => (
 // H2 Text
 const h2Styles = StyleSheet.create({
     text: {
-        fontSize: fontSize.sizeL,
-        lineHeight: fontSize.lineHeightL,
+        fontSize: sizes.Heading2,
+        lineHeight: sizes.lineHeightH2,
     },
 });
 
@@ -45,8 +45,8 @@ export const H2Text = ({ children = '', style }) => (
 // H3 Text
 const h3Styles = StyleSheet.create({
     text: {
-        fontSize: fontSize.sizeM,
-        lineHeight: fontSize.lineHeightM,
+        fontSize: sizes.Heading3,
+        lineHeight: sizes.lineHeightH3,
     },
 });
 
@@ -57,8 +57,8 @@ export const H3Text = ({ children = '', style }) => (
 // H4 Text
 const h4Styles = StyleSheet.create({
     text: {
-        fontSize: fontSize.sizeS,
-        lineHeight: fontSize.lineHeightS,
+        fontSize: sizes.Heading4,
+        lineHeight: sizes.lineHeightH4,
     },
 });
 
@@ -69,8 +69,8 @@ export const H4Text = ({ children, style }) => (
 //H5 Text
 const h5Styles = StyleSheet.create({
     text: {
-        fontSize: fontSize.sizeXXL,
-        lineHeight: fontSize.lineHeightXXL,
+        fontSize: sizes.Heading5,
+        lineHeight: sizes.lineHeightH5,
     },
 });
 
@@ -81,8 +81,8 @@ export const H5Text = ({ children, style }) => (
 //H6 Text
 const h6Styles = StyleSheet.create({
     text: {
-        fontSize: fontSize.sizeL,
-        lineHeight: fontSize.lineHeightL,
+        fontSize: sizes.Heading6,
+        lineHeight: sizes.lineHeightH6,
     },
 });
 

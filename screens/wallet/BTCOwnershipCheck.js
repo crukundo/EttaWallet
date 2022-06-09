@@ -1,6 +1,6 @@
 import { View, StyleSheet } from 'react-native';
 import { Button2_Small } from '../../components/CustomButton';
-import { Skip_Header } from '../../components/Header';
+import { Back_Skip_Toolbar } from '../../components/Header';
 import { H3Text, H6Text, H2Text } from '../../components/CustomText';
 import { CircularContainer } from '../../components/Container';
 import BitcoinCircleLogo from '../../assets/icons/filled/BitcoinCircle';
@@ -63,7 +63,7 @@ const BTCOwnershipCheck = () => {
 
     return (
         <MainContent style={dynamicStyles.container}>
-            <Skip_Header color={color.stroke} />
+            <Back_Skip_Toolbar color={color.stroke} />
             <View style={[dynamicStyles.align, { flex: 1 }]}>
                 <View style={cstyle.viewContainer}>
                     <BitcoinCircleLogo

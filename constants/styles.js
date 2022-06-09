@@ -42,23 +42,25 @@ export const dark = {
     stroke: '#FFFFFF'
 }
 
-export const fontSize = {
-    sizeXS: 10,
-    sizeS: 12,
-    sizeSub: 14,
-    sizeBase: 16,
-    sizeM: 18,
-    sizeL: 21,
-    sizeXXL: 40,
-    sizeXXXL: 80,
-    lineHeightXS: 14,
-    lineHeightS: 16,
-    lineHeightSub: 18,
+export const sizes = {
+    Heading1: 36,
+    Heading2: 28,
+    Heading3: 24,
+    Heading4: 21,
+    Heading5: 18,
+    Heading6: 16,
+    lineHeightH1: 50,
+    lineHeightH2: 40,
+    lineHeightH3: 32,
+    lineHeightH4: 28,
+    lineHeightH5: 24,
+    lineHeightH6: 22,
     lineHeightBase: 22,
-    lineHeightM: 22,
-    lineHeightL: 24,
-    lineHeightXXL: 60,
-    lineHeightXXXL: 100,
+    lineHeightSub: 20,
+    sizeBase: 16,
+    sizeSub: 14,
+
+
 };
 
 export const dynamicStyle = (color) => {
