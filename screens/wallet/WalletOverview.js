@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import Button, { Button2_Small } from '../../components/CustomButton';
 import { Skip_Header } from '../../components/Header';
-import { H3Text, H6Text, H2Text } from '../../components/CustomText';
+import { H3Text, H5Text, H2Text } from '../../components/CustomText';
 import { CircularContainer } from '../../components/Container';
 import WalletIcon from '../../assets/icons/filled/Wallet';
 import CloudIcon from '../../assets/icons/filled/Cloud';
@@ -73,12 +73,12 @@ const WalletOverview = ({ navigation }) => {
             <H2Text style={[dynamicStyles.text, cstyle.text]}>
               Manage your Bitcoin
             </H2Text>
-            <H6Text style={[dynamicStyles.secText, cstyle.secText]}>
+            <H5Text style={[dynamicStyles.secText, cstyle.secText]}>
               Take full control with this completely self-custodied wallet.
-            </H6Text>
-            <H6Text style={[dynamicStyles.secText, cstyle.secText]}>
+            </H5Text>
+            <H5Text style={[dynamicStyles.secText, cstyle.secText]}>
               Your keys, your coins.
-            </H6Text>
+            </H5Text>
           </View> : null
         }
         {progress === 1 ?
@@ -89,10 +89,10 @@ const WalletOverview = ({ navigation }) => {
             <H2Text style={[dynamicStyles.text, cstyle.text]}>
               Convenient backups with cloud storage
             </H2Text>
-            <H6Text style={[dynamicStyles.secText, cstyle.secText]}>
+            <H5Text style={[dynamicStyles.secText, cstyle.secText]}>
               Your recovery phrase will be encrypted and backed up to your cloud
               provider, only you will be able to access it.
-            </H6Text>
+            </H5Text>
           </View> : null
         }
         {progress === 2 ?
@@ -103,9 +103,9 @@ const WalletOverview = ({ navigation }) => {
             <H2Text style={[dynamicStyles.text, cstyle.text]}>
               Keep your wallet and bitcoin secure
             </H2Text>
-            <H6Text style={[dynamicStyles.secText, cstyle.secText]}>
+            <H5Text style={[dynamicStyles.secText, cstyle.secText]}>
               Enable face detection or set a pin for extra security.
-            </H6Text>
+            </H5Text>
           </View> : null
         }
       </View>

@@ -7,7 +7,7 @@ import { dynamicStyle } from '../../constants/styles';
 import MainContent from '../../components/MainContent';
 import { Store } from '../../store';
 
-const BTCOwnershipCheck = ({ navigation }) => {
+const NoBTC = () => {
 
     const store = new Store()
 
@@ -42,14 +42,8 @@ const BTCOwnershipCheck = ({ navigation }) => {
         },
         btn: {
             backgroundColor: primary.bitcoin_orange,
-            marginBottom: 20
-        },
-        btnOutline: {
-            borderWidth: 1,
-            borderColor: primary.bitcoin_orange,
             marginBottom: 20,
-            color: primary.bitcoin_orange,
-
+            color: "#ffffff"
         },
         pinContainer: {
             flexDirection: 'row',
@@ -72,34 +66,26 @@ const BTCOwnershipCheck = ({ navigation }) => {
                         width={120}
                     />
                     <H2Text style={[dynamicStyles.text, cstyle.text]}>
-                        Do you own bitcoin?
+                        No bitcoin?
                     </H2Text>
                     <H5Text style={[dynamicStyles.secText, cstyle.secText]}>
-                        To start using your wallet, you will need to fund it with some bitcoin.
+                        We have a dedicated guide to help you obtain your first bitcoin. It's easy!
                     </H5Text>
                 </View>
             </View>
 
             <View>
                 <Button2_Small
-                    style={cstyle.btnOutline}
-                    onPress={() => {
-                        navigation.navigate("NoBTC");
-                    }}
-                >
-                    <H5Text style={dynamicStyles.btnOutlineText}>No I don't</H5Text>
-                </Button2_Small>
-                <Button2_Small
                     style={cstyle.btn}
                     onPress={() => {
                         return 0;
                     }}
                 >
-                    <H5Text style={cstyle.btnText}>Yes I do</H5Text>
+                    <H5Text style={cstyle.btnText}>View guide</H5Text>
                 </Button2_Small>
             </View>
         </MainContent>
     );
 };
 
-export default BTCOwnershipCheck;
+export default NoBTC;
