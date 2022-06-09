@@ -4,6 +4,8 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useTheme } from '@react-navigation/native';
 import createWallet from './screens/wallet/CreateWallet';
 import WalletIntro from './screens/wallet/WalletIntro';
+import WalletOverview from './screens/wallet/WalletOverview';
+import BTCOwnershipCheck from './screens/wallet/BTCOwnershipCheck';
 
 const WalletStack = createNativeStackNavigator();
 
@@ -45,6 +47,8 @@ const InitStack = createNativeStackNavigator();
 const InitRoot = () => (
     <InitStack.Navigator initialRouteName="WalletIntro">
         <InitStack.Screen name="WalletIntro" component={WalletIntro} options={{ headerShown: false }} />
+        <InitStack.Screen name="WalletOverview" component={WalletOverview} options={{ headerShown: false }} />
+        <InitStack.Screen name="BTCOwnershipCheck" component={BTCOwnershipCheck} options={{ headerShown: false }} />
     </InitStack.Navigator>
 );
 

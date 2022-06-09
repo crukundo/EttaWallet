@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, StyleSheet, ViewPropTypes } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { ViewPropTypes } from 'deprecated-react-native-prop-types';
 import { H3Text } from './CustomText';
 import PropTypes from 'prop-types';
-import { GearIcon } from '@bitcoin-design/bitcoin-icons-react/outline'
-import { CaretLeftIcon } from '@bitcoin-design/bitcoin-icons-react/filled';
+import SettingsIcon from '../assets/icons/outline/Gear';
+import CaretLeft from '../assets/icons/filled/CaretLeft';
 import Button from './CustomButton';
 
 // Header
@@ -28,7 +29,7 @@ Header.propTypes = {
 export const Setting_Header = ({ color, style }) => (
     <Header style={[styles.settingHeader, style]}>
         <Button>
-            <GearIcon height={30} width={30} color={color} />
+            <SettingsIcon height={30} width={30} color={color} />
         </Button>
     </Header>
 );
@@ -37,7 +38,7 @@ export const Back_Header = ({ color, style }) => (
     <Header style={[styles.backHeader, style]}>
         <Button>
             <H3Text style={{ color: color }}>
-                <CaretLeftIcon height={20} width={30} viewBox="0 0 20 20" color={color} />
+                <CaretLeft height={20} width={30} viewBox="0 0 20 20" color={color} />
                 Back
             </H3Text>
         </Button>
@@ -46,7 +47,9 @@ export const Back_Header = ({ color, style }) => (
 
 export const Skip_Header = ({ color, style }) => (
     <Header style={[styles.settingHeader, style]}>
-        <Button>
+        <Button onPress={() => {
+            return 0;
+        }}>
             <H3Text style={{ color: color }}>
                 Skip
             </H3Text>

@@ -2,16 +2,17 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Button, { Button2 } from '../../components/CustomButton'
 import { H4Text, H3Text, H6Text } from '../../components/CustomText';
+import BitcoinCircleLogo from '../../assets/icons/filled/BitcoinCircle';
 import MainContent from '../../components/MainContent';
 import { dynamicStyle } from '../../constants/styles';
 import { Store } from '../../store';
 
-const WalletIntro = () => {
+const WalletIntro = ({ navigation }) => {
 
     const store = new Store()
 
     const createWalletHandler = () => {
-        return 0;
+        navigation.navigate("WalletOverview");
     }
 
     const color = store.theme.color;
@@ -49,6 +50,11 @@ const WalletIntro = () => {
     return (
         <MainContent style={dynamicStyles.container}>
             <View style={[dynamicStyles.align, styles.container1]}>
+                <BitcoinCircleLogo
+                    color={store.theme.primary.bitcoin_orange}
+                    height={120}
+                    width={120}
+                />
                 <H6Text style={[dynamicStyles.text, styles.text]}>Etta Wallet</H6Text>
                 <H3Text style={[dynamicStyles.secText, styles.secText]}>
                     A simple bitcoin wallet for your enjoyment.
