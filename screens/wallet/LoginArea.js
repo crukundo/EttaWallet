@@ -1,18 +1,23 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Button, { Button2 } from '../../components/CustomButton'
-import { H4Text, H3Text, H6Text } from '../../components/CustomText';
+import { H4Text, H3Text, H6Text, H5Text } from '../../components/CustomText';
 import BitcoinCircleLogo from '../../assets/icons/filled/BitcoinCircle';
 import MainContent from '../../components/MainContent';
 import { dynamicStyle } from '../../constants/styles';
 import { Store } from '../../store';
+import { Back_Header } from '../../components/Header';
 
-const WalletIntro = ({ navigation }) => {
+const LoginArea = ({ navigation }) => {
 
-    const store = new Store()
+    const store = new Store();
 
-    const createWalletHandler = () => {
-        navigation.navigate("WalletOverview");
+    const goToEnterPIN = () => {
+        navigation.navigate("");
+    }
+
+    const goToResetWallet = () => {
+        navigation.navigate("");
     }
 
     const color = store.theme.color;
@@ -49,6 +54,7 @@ const WalletIntro = ({ navigation }) => {
     })
     return (
         <MainContent style={dynamicStyles.container}>
+            <Back_Header color={color.stroke} />
             <View style={[dynamicStyles.align, styles.container1]}>
                 <BitcoinCircleLogo
                     color={store.theme.primary.bitcoin_orange}
@@ -56,17 +62,18 @@ const WalletIntro = ({ navigation }) => {
                     width={120}
                 />
                 <H6Text style={[dynamicStyles.text, styles.text]}>Etta Wallet</H6Text>
-                <H3Text style={[dynamicStyles.secText, styles.secText]}>
-                    A simple bitcoin wallet for your enjoyment.
-                </H3Text>
-                <Button2 onPress={createWalletHandler} style={styles.btn}>
-                    <H3Text style={dynamicStyles.btnText}>Create a new wallet</H3Text>
+                <H5Text style={[dynamicStyles.secText, styles.secText]}>
+                    Welcome back.
+                </H5Text>
+                <Button2 onPress={goToEnterPIN} style={styles.btn}>
+                    <H4Text style={dynamicStyles.btnText}>Log in</H4Text>
                 </Button2>
-                <Button onPress={createWalletHandler}>
-                    <H4Text style={styles.restoreTxt}>Restore existing wallet</H4Text>
-                </Button>
+
             </View>
             <View style={[dynamicStyles.align, styles.container2]}>
+                <Button onPress={goToResetWallet}>
+                    <H5Text style={styles.restoreTxt}>Reset wallet</H5Text>
+                </Button>
                 <H4Text style={[dynamicStyles.secText, styles.footerTxt]}>
                     Your wallet, your coins
                 </H4Text>
@@ -78,4 +85,4 @@ const WalletIntro = ({ navigation }) => {
     );
 }
 
-export default WalletIntro;
+export default LoginArea;

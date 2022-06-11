@@ -12,7 +12,7 @@ import { PinBubble } from '../../components/Pin';
 import MainContent from '../../components/MainContent';
 import { Store } from '../../store';
 
-const WalletOverview = ({ navigation }) => {
+const ProductIntroScreens = ({ navigation }) => {
 
   const store = new Store()
 
@@ -161,4 +161,4 @@ const WalletOverview = ({ navigation }) => {
   );
 };
 
-export default WalletOverview;
+export default ProductIntroScreens;

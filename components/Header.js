@@ -6,14 +6,17 @@ import PropTypes from 'prop-types';
 import SettingsIcon from '../assets/icons/outline/Gear';
 import CaretLeft from '../assets/icons/filled/CaretLeft';
 import Button from './CustomButton';
+import * as NavigationService from '../NavigationService';
 
 // Header
 const styles = StyleSheet.create({
     settingHeader: {
         alignItems: 'flex-end',
+        marginTop: 20
     },
     backHeader: {
         alignItems: 'flex-start',
+        marginTop: 20
     },
     toolbarContainer: {
         flexDirection: 'row',
@@ -41,7 +44,7 @@ export const Setting_Header = ({ color, style }) => (
 
 export const Back_Header = ({ color, style }) => (
     <Header style={[styles.backHeader, style]}>
-        <Button>
+        <Button onPress={() => NavigationService.goBack()}>
             <H5Text style={{ color: color }}>
                 <CaretLeft height={20} width={30} viewBox="0 0 20 20" color={color} />
                 Back
@@ -53,7 +56,8 @@ export const Back_Header = ({ color, style }) => (
 export const Skip_Header = ({ color, style }) => (
     <Header style={[styles.settingHeader, style]}>
         <Button onPress={() => {
-            return 0;
+            console.log("clicked");
+            NavigationService.goTo('WalletFirstUse');
         }}>
             <H5Text style={{ color: color }}>
                 Skip
@@ -64,16 +68,14 @@ export const Skip_Header = ({ color, style }) => (
 
 export const Back_Skip_Toolbar = ({ color, style }) => (
     <Header style={[styles.toolbarContainer, style]}>
-        <Button onPress={() => {
-            return 0;
-        }}>
+        <Button onPress={() => NavigationService.goBack()}>
             <H5Text style={{ color: color }}>
                 <CaretLeft height={20} width={30} viewBox="0 0 20 20" color={color} />
                 Back
             </H5Text>
         </Button>
         <Button onPress={() => {
-            return 0;
+            NavigationService.goTo('WalletFirstUse');
         }}>
             <H5Text style={{ color: color }}>
                 Skip
