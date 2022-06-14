@@ -3,20 +3,24 @@ import { StyleSheet, View } from 'react-native';
 import { observer } from 'mobx-react';
 import MainContent from '../../components/MainContent';
 import { H3Text, H5Text, H6Text } from '../../components/CustomText';
+import { Button2_Small } from '../../components/CustomButton';
 import { PinSecret, PinPad } from '../../components/Pin';
 import { dynamicStyle } from '../../constants/styles';
-// import * as backup from '../../actions/backup';
+import * as backup from '../../actions/backup';
 import store from '../../store';
-import AuthAction from '../../auth';
 import { Back_Header } from '../../components/Header';
+import { TextInput } from '../../components/TextInput';
+
+const color = store.theme.color;
+const primary = store.theme.primary;
 
 const SetPinScreen = ({ navigation }) => {
 
-  const color = store.theme.color;
   const dynamicStyles = dynamicStyle(color);
   const styles = StyleSheet.create({
     container1: {
       flex: 1,
+      justifyContent: 'flex-start',
     },
     container2: {
       flex: 2,
@@ -25,6 +29,10 @@ const SetPinScreen = ({ navigation }) => {
     },
     secText: {
       paddingVertical: 20,
+    },
+    btn: {
+      backgroundColor: primary.bitcoin_orange,
+      margin: 20,
     },
   });
 
@@ -37,23 +45,26 @@ const SetPinScreen = ({ navigation }) => {
         <H5Text style={[dynamicStyles.secText, styles.secText]}>
           Use a PIN you can remember.
         </H5Text>
-        <PinSecret
-          pin={store.backup.newPin}
-          stroke={color.stroke}
-          border={color.stroke}
+        <TextInput
+          placeholder="PIN (at least 4 digits)"
+          keyboardType="number-pad"
+          textContentType="newPassword"
+          secureTextEntry
+          autoFocus
+          style={styles.input}
+          value={store.backup.pin}
+          onChangeText={pin => backup.setPin(pin)}
         />
         <H6Text style={[dynamicStyles.secText, styles.secText]}>
           This is used to encrypt your wallet, which prevents your cloud service provider from accessing it.
         </H6Text>
       </View>
       <View style={styles.container2}>
-        <PinPad
-          onInput={(digit) => AuthAction.pushPinDigit({ digit, param: 'newPin' })}
-          onBackspace={() => AuthAction.popPinDigit({ param: 'newPin' })}
-          stroke={color.stroke}
-          secondary={color.neutral7}
-        />
+        <Button2_Small style={styles.btn} onPress={() => backup.validateNewPin()}>
+          <H3Text style={dynamicStyles.btnText}>Next</H3Text>
+        </Button2_Small>
       </View>
+
     </MainContent>
   );
 };

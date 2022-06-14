@@ -1,4 +1,4 @@
-import { KeyBackup } from '@photon-sdk/photon-lib';
+import { KeyBackup } from '../libs/keybackup';
 
 import store from '../store';
 import * as NavigationService from '../NavigationService';

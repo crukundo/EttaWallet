@@ -24,12 +24,14 @@
       "buildNumber": "1.0.0",
       "config": {
         "googleSignIn": {
-          "reservedClientId": "com.googleusercontent.apps.945320253057-pjnoje35noor02633t97bprlkg3s3bqo"
+          "reservedClientId": "com.googleusercontent.apps.560693992159-mtrkveah8ehekhqsku25ohmgsne5td90"
         }
-      }
+      },
+      "googleServicesFile": "./GoogleService-Info.plist"
     },
     "android": {
       "package": "com.rukundo.ettawallet",
+      "googleServicesFile": "./google-services.json",
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",

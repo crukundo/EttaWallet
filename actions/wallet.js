@@ -1,17 +1,16 @@
 import { DevSettings } from 'react-native';
 import Clipboard from '@react-native-community/clipboard';
-import { WalletStore, ElectrumClient } from '@photon-sdk/photon-lib';
+import { ElectrumClient } from '../libs/BlueElectrum';
+import { WalletStore } from '../libs/wallet/walletstore';
 
-import Store from '../store';
+import store from '../store';
 import * as NavigationService from '../NavigationService';
 import * as alert from './alert';
 import { nap } from '../utils';
 
 export const walletStore = new WalletStore();
 
-const store = new Store();
-
-const PIN_KEY = 'photon.pin';
+const PIN_KEY = 'etta.pin';
 
 //
 // Init and startup

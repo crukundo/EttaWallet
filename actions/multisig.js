@@ -1,11 +1,11 @@
 import DocumentPicker from 'react-native-document-picker';
 import RNShare from 'react-native-share';
 import RNFS from 'react-native-fs';
-import {MultisigHDWallet} from '@photon-sdk/photon-lib';
+import { MultisigHDWallet } from '../libs/wallet/multisig-hd-wallet';
 
 import store from '../store';
 import * as alert from './alert';
-import {getWallet, getMultisigWallet, walletStore} from './wallet';
+import { getWallet, getMultisigWallet, walletStore } from './wallet';
 
 export async function importColdCard() {
   try {
@@ -13,7 +13,7 @@ export async function importColdCard() {
     await _createMultiSig();
     alert.info('Success', '2-of-2 MultiSig created!');
   } catch (err) {
-    alert.error({err});
+    alert.error({ err });
   }
 }
 
@@ -57,7 +57,7 @@ export async function exportTxtFile() {
     await _exportMultiSigTxt();
     alert.info('Success', 'Multisig.txt exported!');
   } catch (err) {
-    alert.error({err});
+    alert.error({ err });
   }
 }
 

@@ -1,14 +1,12 @@
-import { HDSegwitBech32Wallet, KeyBackup } from '@photon-sdk/photon-lib';
+import { HDSegwitBech32Wallet, KeyBackup } from '../libs';
 
-import Store from '../store';
+import store from '../store';
 import * as NavigationService from '../NavigationService';
 import * as alert from './alert';
 import { saveToDisk, savePinToDisk } from './wallet';
 import { Platform } from 'react-native';
 
 const platform = Platform.OS === 'ios' ? 'iCloud' : 'Google Drive';
-
-const store = new Store();
 
 export function init() {
     KeyBackup.init({ keyServerURI: store.config.keyServer });
@@ -17,8 +15,10 @@ export function init() {
 export async function authenticate() {
     try {
         await KeyBackup.authenticate({
-            clientId:
+            clientId: '535388410545-2qu0melfkv5n593i6nv4v9dhaa1u4vph.apps.googleusercontent.com',
+            iosClientId:
                 '945320253057-pjnoje35noor02633t97bprlkg3s3bqo.apps.googleusercontent.com', // EttaWallet OAuth IOS client
+            androidClientId: '945320253057-ihfj716pq3dnc97et0vo3ufbl90d2894.apps.googleusercontent.com' // EttaWallet OAuth Android client
         });
     } catch (err) {
         alert.error({ err });
@@ -49,7 +49,7 @@ export async function validateNewPin() {
     if (!pin || pin.length < 4) {
         return alert.error({ message: 'PIN must be at least 4 digits!' });
     }
-    NavigationService.goTo('BackupPinVerify');
+    NavigationService.goTo('VerifyPinScreen');
 }
 
 //
@@ -66,7 +66,7 @@ export async function validatePinVerify() {
         return alert.error({ message: "PINs don't match!" });
     }
     try {
-        NavigationService.goTo('BackupWait', {
+        NavigationService.goTo('WaitForBackupScreen', {
             message: `Creating encrypted\n${platform} backup...`,
         });
         await _generateWalletAndBackup(pin);

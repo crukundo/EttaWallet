@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "560693992159",
+    "project_id": "ettawallet",
+    "storage_bucket": "ettawallet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:560693992159:android:9d0ac6e724e0099ea5676a",
+        "android_client_info": {
+          "package_name": "com.rukundo.ettawallet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "560693992159-g5h1h7fns2k5cqrmip4ds0m4kb6fhge0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKPHiARQOSPMSyucem3INgYfDbcZj8rSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "560693992159-g5h1h7fns2k5cqrmip4ds0m4kb6fhge0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "560693992159-mtrkveah8ehekhqsku25ohmgsne5td90.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rukundo.ettawallet"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
