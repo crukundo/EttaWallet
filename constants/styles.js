@@ -72,6 +72,10 @@ export const dynamicStyle = (color) => {
         text: {
             color: color.stroke,
         },
+        boldtext: {
+            color: color.stroke,
+            fontWeight: "700"
+        },
         secText: {
             color: color.neutral7,
         },

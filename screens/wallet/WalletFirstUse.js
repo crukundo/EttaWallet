@@ -5,11 +5,9 @@ import { H4Text, H3Text, H6Text, H5Text } from '../../components/CustomText';
 import BitcoinCircleLogo from '../../assets/icons/filled/BitcoinCircle';
 import MainContent from '../../components/MainContent';
 import { dynamicStyle } from '../../constants/styles';
-import { Store } from '../../store';
+import store from '../../store';
 
 const WalletFirstUse = ({ navigation }) => {
-
-    const store = new Store()
 
     const createWalletHandler = () => {
         navigation.navigate('BackupWallet', {

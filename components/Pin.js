@@ -4,7 +4,7 @@ import { ViewPropTypes } from 'deprecated-react-native-prop-types';
 import PropTypes from 'prop-types';
 import { H3Text, H4Text } from './CustomText';
 import Button from './CustomButton';
-import { BackspaceIcon } from '@bitcoin-design/bitcoin-icons-react/filled';
+import BackspaceIcon from '../assets/icons/filled/ClearCharacter';
 
 // Pin Entry
 const pinEntryStyles = StyleSheet.create({
@@ -152,6 +152,7 @@ export const PinPad = ({ onInput, onBackspace, stroke, secondary }) => (
                 />
                 <PinKey
                     num="back"
+                    label="Del"
                     onPress={onBackspace}
                     stroke={stroke}
                     secondary={secondary}
@@ -194,7 +195,7 @@ const PinKey = ({ num, label, onPress, stroke, secondary }) => {
     if (num == 'back') {
         return (
             <Button onPress={onPress} style={[keyStyles.btn, keyStyles.backBtn]}>
-                {/* <BackspaceIcon color={stroke} height={30} width={30} /> */}
+                <BackspaceIcon color={stroke} height={30} width={30} />
             </Button>
         );
     } else {

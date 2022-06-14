@@ -1,49 +1,60 @@
-/**
- * @fileOverview the global application store used by mobx for
- * state management. These values are either rendered directly
- * in react components or used as a basis for computed values.
- */
+import { observable } from 'mobx';
+import { primary, light } from './constants/styles';
+import ComputedSend from './computed/send';
+import ComputedWallet from './computed/wallet';
 
-import { extendObservable } from 'mobx';
-import { primary, dark, light } from './constants/styles';
+const store = observable({
+    // app state
+    navReady: false,
+    backupExists: null,
+    walletReady: false,
+    electrumConnected: false,
+    xpub: null,
+    balance: null,
+    balanceRefreshing: false,
+    transactions: [],
+    nextAddress: null,
+    cosigners: [],
 
-export class Store {
-    constructor() {
-        extendObservable(this, {
-            auth: {
-                pin: '',
-                newPin: '',
-                pinVerify: '',
-                resetPinCurrent: '',
-                resetPinNew: '',
-                resetPinVerify: '',
-            },
-            backup: {
-                newPass: '',
-                confirmedPass: '',
-                valid: false,
-            },
-            theme: {
-                type: 'dark',
-                primary: primary,
-                color: light, // change this to update themeColor
-                userColor: light
-            },
-            hardwareWallet: {
-                type: 'none',
-                identifying: false,
-                identified: false,
-                verifying: false,
-                addressVerified: false,
-                resgistered: false,
-            },
-            transactions: [],
-            exchangeRate: {},
-            defaultUnit: 'btc',
-            defaultFiat: 'eur',
-        });
-    }
-    init() { }
-}
+    // screens
+    backup: {
+        pin: '',
+        newPin: '',
+        pinVerify: '',
+    },
+    userId: {
+        email: '',
+        code: '',
+        pin: '',
+        delay: null,
+    },
+    settings: {
+        email: null,
+    },
+    send: {
+        value: null,
+        feeRate: '2',
+        address: null,
+        newTx: {},
+    },
+    theme: {
+        type: 'dark',
+        primary: primary,
+        color: light, // change this to update themeColor
+        userColor: light
+    },
+    // Persistent data
+    config: {
+        electrum: {
+            host: 'electrum1.bluewallet.io',
+            tcp: '50001',
+            ssl: null,
+        },
+        keyServer: 'https://keys-dev.photonsdk.com',
+    },
+});
 
-export default new Store();
+ComputedSend(store);
+ComputedWallet(store);
+
+export default store;

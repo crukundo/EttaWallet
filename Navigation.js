@@ -10,19 +10,24 @@ import SetPin from './screens/pin/SetPin';
 import VerifyPin from './screens/pin/VerifyPin';
 import WaitForBackup from './screens/pin/WaitForBackup';
 
+const BackupStack = createNativeStackNavigator();
+
 const BackupWalletStack = () => (
     <BackupStack.Navigator>
         <BackupStack.Screen
             name="SetPinScreen"
             component={SetPin}
+            options={{ headerShown: false }}
         />
         <BackupStack.Screen
             name="VerifyPinScreen"
             component={VerifyPin}
+            options={{ headerShown: false }}
         />
         <BackupStack.Screen
             name="WaitForBackupScreen"
             component={WaitForBackup}
+            options={{ headerShown: false }}
         />
     </BackupStack.Navigator>
 );

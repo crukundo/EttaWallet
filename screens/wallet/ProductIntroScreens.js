@@ -10,14 +10,13 @@ import SafeIcon from '../../assets/icons/filled/Safe';
 import { dynamicStyle } from '../../constants/styles';
 import { PinBubble } from '../../components/Pin';
 import MainContent from '../../components/MainContent';
-import { Store } from '../../store';
+import store from '../../store';
+
+const color = store.theme.color;
+const primary = store.theme.primary;
 
 const ProductIntroScreens = ({ navigation }) => {
 
-  const store = new Store()
-
-  const color = store.theme.color;
-  const primary = store.theme.primary;
   const [progress, setprogress] = useState(0);
 
   const dynamicStyles = dynamicStyle(color);

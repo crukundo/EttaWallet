@@ -18,7 +18,7 @@ export async function authenticate() {
     try {
         await KeyBackup.authenticate({
             clientId:
-                '535388410545-2qu0melfkv5n593i6nv4v9dhaa1u4vph.apps.googleusercontent.com',
+                '945320253057-pjnoje35noor02633t97bprlkg3s3bqo.apps.googleusercontent.com', // EttaWallet OAuth IOS client
         });
     } catch (err) {
         alert.error({ err });
