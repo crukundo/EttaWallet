@@ -1,7 +1,7 @@
 import * as bip39 from 'bip39';
 import BigNumber from 'bignumber.js';
 import b58 from 'bs58check';
-import { randomBytes } from './rng';
+import * as Random from 'expo-random';
 import { AbstractHDWallet } from './abstract-hd-wallet';
 import * as bitcoin from 'bitcoinjs-lib';
 import * as BlueElectrum from '../BlueElectrum';
@@ -68,8 +68,9 @@ export class AbstractHDElectrumWallet extends AbstractHDWallet {
   }
 
   async generate() {
-    const buf = await randomBytes(16);
-    this.secret = bip39.entropyToMnemonic(buf.toString('hex'));
+    const buf = Random.getRandomBytes(16);
+    const stringBuf = buf.toString('hex');
+    this.secret = bip39.entropyToMnemonic(stringBuf);
   }
 
   async generateFromEntropy(user) {
