@@ -72,7 +72,7 @@ export async function validatePinVerify() {
         await _generateWalletAndBackup(pin);
         NavigationService.reset('Main');
     } catch (err) {
-        NavigationService.goTo('BackupPinVerify');
+        NavigationService.goTo('VerifyPinScreen');
         alert.error({ err });
     }
 }

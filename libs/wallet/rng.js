@@ -3,7 +3,7 @@
  * into one place to try and prevent mistakes when touching the crypto code.
  */
 
-import * as crypto from '../crypto';
+import crypto from '../crypto';
 
 /**
  * Generate cryptographically secure random bytes using native api.
