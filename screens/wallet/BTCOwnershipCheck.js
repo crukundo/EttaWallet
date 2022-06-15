@@ -5,11 +5,9 @@ import { H2Text, H5Text } from '../../components/CustomText';
 import BitcoinCircleLogo from '../../assets/icons/filled/BitcoinCircle';
 import { dynamicStyle } from '../../constants/styles';
 import MainContent from '../../components/MainContent';
-import { Store } from '../../store';
+import store from '../../store';
 
 const BTCOwnershipCheck = ({ navigation }) => {
-
-    const store = new Store()
 
     const color = store.theme.color;
     const primary = store.theme.primary;
