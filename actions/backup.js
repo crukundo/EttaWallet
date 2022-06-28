@@ -1,4 +1,6 @@
-import { HDSegwitBech32Wallet, KeyBackup } from '../libs';
+import * as KeyBackup from '../libs/keybackup';
+
+import { HDSegwitBech32Wallet } from '../libs/wallet/hd-segwit-bech32-wallet'
 
 import store from '../store';
 import * as NavigationService from '../NavigationService';
@@ -82,6 +84,7 @@ async function _generateWalletAndBackup(pin) {
     const wallet = new HDSegwitBech32Wallet();
     await wallet.generate();
     const mnemonic = await wallet.getSecret();
+    console.log("mnemonic: ", mnemonic);
     // cloud backup of encrypted seed
     const data = { mnemonic };
     await KeyBackup.createBackup({ data, pin });

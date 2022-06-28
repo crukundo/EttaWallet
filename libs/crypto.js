@@ -12,12 +12,6 @@ import * as Random from 'expo-random';
  * @param  {function} callback  The callback to return the bytes
  * @return {Buffer}             The random bytes
  */
-exports.randomBytesFn = (size, callback) => {
-  Random.getRandomBytes(size, (err, bytes) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, Buffer.from(bytes, 'base64'));
-    }
-  });
+exports.randomBytes = (size) => {
+  Random.getRandomBytes(size);
 };

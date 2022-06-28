@@ -4,29 +4,39 @@
 
 import Frisbee from 'frisbee';
 
-export let _api; // the frisbee client instance (for testing)
+import store from '../store';
+
+// export let _api // the frisbee client instance (for testing)
 
 /**
  * Initiate the client by setting the keyserver's base url.
  * @param  {string} baseURI  The keyserver base url
  * @return {undefined}
  */
-export function init({ baseURI }) {
-  _api = new Frisbee({
-    baseURI,
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-  });
-}
+// export function init({ baseURI }) {
+//   _api = new Frisbee({
+//     baseURI,
+//     headers: {
+//       Accept: 'application/json',
+//       'Content-Type': 'application/json',
+//     },
+//   });
+// }
+
+const _api = new Frisbee({
+  baseURI: store.config.keyServer,
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+});
 
 /**
  * Set the user chosen PIN as a basic authentication http header.
  * @param {string} pin  A user chosen pin to authenticate to the keyserver
  */
 export function setPin({ pin }) {
-  _api.auth('', pin);
+  _api.auth('', pin); // user is empty string, pin is pass.
 }
 
 /**

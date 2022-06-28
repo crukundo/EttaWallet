@@ -11,13 +11,6 @@ import crypto from '../crypto';
  * @return {Promise<Buffer>}  The random bytes
  */
 export async function randomBytes(size) {
-  return new Promise((resolve, reject) => {
-    crypto.randomBytes(size, (err, data) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(data);
-      }
-    });
-  });
+  buf = crypto.randomBytes(size);
+  return Buffer.from( new Uint8Array(buf) );
 }

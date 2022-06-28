@@ -4,20 +4,20 @@
  */
 
 import { Platform } from 'react-native';
-import RNiCloudStorage from '@photon-sdk/react-native-icloudstore';
+import RNICloudStorage from '@photon-sdk/react-native-icloudstore';
 import * as GDriveCloudStorage from './GDriveCloudStorage';
 import { isPhone, isEmail, isId, isBuffer } from './verify';
 
-const Store = Platform.OS === 'ios' ? RNiCloudStorage : GDriveCloudStorage;
+const Storage = Platform.OS === 'ios' ? RNICloudStorage : GDriveCloudStorage;
 
 const VERSION = '1';
-const KEY_ID = `${VERSION}_photon_key_id`;
-const PHONE = `${VERSION}_photon_phone`;
-const EMAIL = `${VERSION}_photon_email`;
+const KEY_ID = `${VERSION}_etta_key_id`;
+const PHONE = `${VERSION}_etta_phone`;
+const EMAIL = `${VERSION}_etta_email`;
 
 export async function authenticate(options) {
-  if (Store.authenticate) {
-    await Store.authenticate(options);
+  if (Storage.authenticate) {
+    await Storage.authenticate(options);
   }
 }
 
@@ -29,19 +29,19 @@ export async function putKey({ keyId, ciphertext }) {
   if (!isId(keyId) || !isBuffer(ciphertext)) {
     throw new Error('Invalid args');
   }
-  if (await Store.getItem(KEY_ID)) {
+  if (await Storage.getItem(KEY_ID)) {
     throw new Error('Backup already present');
   }
-  await Store.setItem(KEY_ID, keyId);
-  await Store.setItem(shortKeyId(keyId), stringifyKey({ keyId, ciphertext }));
+  await Storage.setItem(KEY_ID, keyId);
+  await Storage.setItem(shortKeyId(keyId), stringifyKey({ keyId, ciphertext }));
 }
 
 export async function getKey() {
-  const keyId = await Store.getItem(KEY_ID);
+  const keyId = await Storage.getItem(KEY_ID);
   if (!keyId) {
     return null;
   }
-  const key = await Store.getItem(shortKeyId(keyId));
+  const key = await Storage.getItem(shortKeyId(keyId));
   return key ? parseKey(key) : null;
 }
 
@@ -50,7 +50,7 @@ export async function removeKeyId({ keyId }) {
   if (!item || item.keyId !== keyId) {
     throw new Error('Backup not found');
   }
-  await Store.removeItem(KEY_ID);
+  await Storage.removeItem(KEY_ID);
 }
 
 //
@@ -61,15 +61,15 @@ export async function putPhone({ userId }) {
   if (!isPhone(userId)) {
     throw new Error('Invalid args');
   }
-  await Store.setItem(PHONE, userId);
+  await Storage.setItem(PHONE, userId);
 }
 
 export async function getPhone() {
-  return Store.getItem(PHONE);
+  return Storage.getItem(PHONE);
 }
 
 export async function removePhone() {
-  await Store.removeItem(PHONE);
+  await Storage.removeItem(PHONE);
 }
 
 //
@@ -80,15 +80,15 @@ export async function putEmail({ userId }) {
   if (!isEmail(userId)) {
     throw new Error('Invalid args');
   }
-  await Store.setItem(EMAIL, userId);
+  await Storage.setItem(EMAIL, userId);
 }
 
 export async function getEmail() {
-  return Store.getItem(EMAIL);
+  return Storage.getItem(EMAIL);
 }
 
 export async function removeEmail() {
-  await Store.removeItem(EMAIL);
+  await Storage.removeItem(EMAIL);
 }
 
 //

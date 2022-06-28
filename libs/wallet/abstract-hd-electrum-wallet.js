@@ -68,8 +68,11 @@ export class AbstractHDElectrumWallet extends AbstractHDWallet {
   }
 
   async generate() {
-    const buf = Random.getRandomBytes(16);
-    const stringBuf = buf.toString('hex');
+    const buf = Random.getRandomBytes(16); // this expo lib gives as a Uint8array
+    var buffer = Buffer.from( new Uint8Array(buf) ); // convert to traditional nodejs buffer
+    console.log("Buffer: ", buffer);
+    const stringBuf = buffer.toString('hex'); // lay it out nicely in hex
+    console.log("String Buffer: ", stringBuf);
     this.secret = bip39.entropyToMnemonic(stringBuf);
   }
 
